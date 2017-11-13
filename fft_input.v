@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 /*
-function : control input(when to take input 
-与串行输入设备的简单接口，起到根据主机的状态决定是否传递数据进入的作用，en=1允许输入
+function : control input(when to take input
+涓庝覆琛岃緭鍏ヨ澶囩殑绠�鍗曟帴鍙ｏ紝璧峰埌鏍规嵁涓绘満鐨勭姸鎬佸喅瀹氭槸鍚︿紶閫掓暟鎹繘鍏ョ殑浣滅敤锛宔n=1鍏佽杈撳叆
 */
 module fft_input(
     input wire rst,
