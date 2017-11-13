@@ -1,26 +1,30 @@
 `timescale 1ns / 1ps
 /*
 function : control output(when to take input 
-Óë´®ĞĞÊä³öÉè±¸µÄ¼òµ¥½Ó¿Ú£¬ÓÉ½ÓÊÕÉè±¸¾ö¶¨Ö÷»úÊÇ·ñÏòÍâÊä³ö
+ä¸ä¸²è¡Œè¾“å‡ºè®¾å¤‡çš„ç®€å•æ¥å£ï¼Œç”±æ¥æ”¶è®¾å¤‡å†³å®šä¸»æœºæ˜¯å¦å‘å¤–è¾“å‡º
 */
 module fft_output(
     input wire rst,
     input wire req_i,
     input wire ans_i,
     input wire en,
-    input wire [15:0] data_i,
+    input wire [15:0] data_iR,
+    input wire [15:0] data_iJ,
     output wire req_o,
     output wire ans_o,
-    output reg [15:0] data_o
+    output reg [15:0] data_oR,
+    output reg [15:0] data_oJ
     );
     assign req_o = req_i;
     assign ans_o = ans_i;
     always @(*) begin
         if(rst == 1'b0) begin
-            data_o <= 16'h0000;
+            data_oR <= 16'h0000;
+            data_oJ <= 16'h0000;
         end
         else if(en == 1'b1) begin
-            data_o <= data_i;
+            data_oR <= data_iR;
+            data_oJ <= data_iJ;
         end
     end
 endmodule
