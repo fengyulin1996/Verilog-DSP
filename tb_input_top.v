@@ -1,20 +1,20 @@
 `timescale 1ns / 1ps
-module tb_input_top();
+module tb_input_top6();
 reg clk,rst;
 reg req;
 reg [15:0] data;    //input
 
 initial begin
     clk = 1'b0;
-    rst = 1'b0;    //复位
-    req = 1'b1;    //打开输入请求
-    data = 16'hffff;    //输入1
-    #40 rst = 1'b1;    // 解除复位
-    #200 data = 16'h0000;    //输入0
+    rst = 1'b0;    //澶嶄綅
+    req = 1'b1;    //鎵撳紑杈撳叆璇锋眰
+    data = 16'h7fff;    //杈撳叆1
+    #40 rst = 1'b1;    // 瑙ｉ櫎澶嶄綅
+    #40 data = 16'h0000;    //杈撳叆0
 end
 
 always begin
-    #5 clk = ~clk;    //10ns 时钟
+    #5 clk = ~clk;    //10ns 鏃堕挓
 end
 fft_top fft_top
     (.clk(clk),
